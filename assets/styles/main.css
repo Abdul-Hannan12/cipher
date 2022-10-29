@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root{
+  --tan: tan;
+  --brown: brown;
+  --black: black;
+  --inputBorder: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  background: var(--tan);
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.side {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px dotted var(--brown);
+  position: absolute;
+  left: 0;
+}
+
+.side button {
+  flex: 1;
+  width: 20vw;
+  background-color: transparent;
+  border: none;
+  font-size: 2.8rem;
+  color: var(--brown);
+  transition: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.side button:nth-child(1) {
+  border-bottom: 1px dotted var(--black);
+}
+
+.flex {
+  flex: 1;
+}
+
+.main {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  display: block;
+  width: 350px;
+  font-size: 26px;
+  line-height: 48px;
+  background: 0 0;
+  border-bottom: 1px dotted var(--inputBorder);
+  padding: 5px 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  text-align: center;
+}
+
+#hiddenInput {
+  transform: translateX(5000px);
+}
+
+.containerdiv {
+  align-items: center;
+  border: 5px solid var(--black);
+  padding: 70px;
+  position: absolute;
+  transform: translate(0px, 100px);
+  border-radius: 20px;
+  box-shadow: 5px 10px 15px var(--brown);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.select_btn {
+  padding: 40px;
+  font-size: xx-large;
+  border-radius: 50px;
+  margin: 50px;
+  background-color: transparent;
+}
+
+.buttons {
+  transform: translate(0px, -200px);
+}
+
+.btn_convert {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  margin-bottom: 40px;
+}
+
+button {
+  cursor: pointer;
+}

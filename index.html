@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="assets/styles/image.css" type="text/css" />
+    <link rel="stylesheet" href="assets/styles/toggles.css" type="text/css" />
 
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
     
     <title>CIPHER</title>
@@ -20,26 +21,58 @@
 
     <div class="body">
 
+        <div class="side">
+
+            <button class="selected" id="btntxt">Text</button>
+            <button class="" id="btnimg">Image</button>
+
+        </div>
+        
         <input type="text" id="hiddenInput">
+        
+        <div class="main show">
 
-        <div class="buttons">
-            <button class="select_btn focus" id="btnEncrypt" onclick="showEncryptDiv()">ENCRYPT</button>
-            <button class="select_btn " id="btnDecrypt" onclick="showDecryptDiv()">DECRYPT</button>
+            <div class="buttons">
+                <button class="select_btn focus" id="btnEncrypt" onclick="showEncryptDiv()">ENCRYPT</button>
+                <button class="select_btn " id="btnDecrypt" onclick="showDecryptDiv()">DECRYPT</button>
+            </div>
+
+            <div class="containerdiv show" id="encryptDiv">
+                <input class="input" id="encInput" type="text" placeholder="Enter Text Here ..." autocomplete="off">
+                <button class="btn_convert" onclick="convert(0)"><b>Ecnrypt</b></button>
+            </div>
+
+            <div class="containerdiv show hide" id="decryptDiv">
+                <input class="input" id="decInput" type="text" placeholder="Enter Cipher Here ..." autocomplete="off">
+                <button class="btn_convert" onclick="convert(1)"><b>Decrypt</b></button>
+            </div>
+
         </div>
 
-        <div class="containerdiv show" id="encryptDiv">
-            <input class="input" id="encInput" type="text" placeholder="Enter Text Here ..." autocomplete="off">
-            <button class="btn_convert" onclick="convert(0)"><b>Ecnrypt</b></button>
-        </div>
+        <div class="main mainImage show hide">
 
-        <div class="containerdiv show hide" id="decryptDiv">
-            <input class="input" id="decInput" type="text" placeholder="Enter Cipher Here ..." autocomplete="off">
-            <button class="btn_convert" onclick="convert(1)"><b>Decrypt</b></button>
+            <div class="buttons">
+                <button class="select_btn focus" id="btnEncryptImage" onclick="showEncryptImageDiv()">ENCRYPT</button>
+                <button class="select_btn " id="btnDecryptImage" onclick="showDecryptImageDiv()">DECRYPT</button>
+            </div>
+
+            <div class="containerdiv show" id="encryptDiv">
+                <input class="input" id="encInputImage" type="text" placeholder="Insert Image Here ..." autocomplete="off">
+                <button class="btn_convert" onclick="convertImage(0)"><b>Ecnrypt</b></button>
+            </div>
+
+            <div class="containerdiv show hide" id="decryptDiv">
+                <input class="input" id="decInputImage" type="text" placeholder="Enter Cipher Here ..." autocomplete="off">
+                <button class="btn_convert" onclick="convertImage(1)"><b>Decrypt</b></button>
+            </div>
+
         </div>
 
     </div>
         
-    <script src="script.js"></script>
+    <script src="assets/scripts/text.js"></script>
+    <script src="assets/scripts/side.js"></script>
+    <script src="assets/scripts/image.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
