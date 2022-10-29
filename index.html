@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -8,23 +7,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cipher</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="style.css">
+    <title>CIPHER</title>
 
 </head>
 
 <body>
 
-    <center><h1>CIPHER</h1></center>
-    
-    <input type="file" name="image" id="fileUpload">
-    <button onclick="convert()">ok</button>
+    <div class="body">
 
-    <center><h1 id="ttt">text</h1></center>
+        <input type="text" id="hiddenInput">
 
+        <div class="buttons">
+            <button class="select_btn focus" id="btnEncrypt" onclick="showEncryptDiv()">ENCRYPT</button>
+            <button class="select_btn " id="btnDecrypt" onclick="showDecryptDiv()">DECRYPT</button>
+        </div>
+
+        <div class="containerdiv show" id="encryptDiv">
+            <input class="input" id="encInput" type="text" placeholder="Enter Text Here ..." autocomplete="off">
+            <button class="btn_convert" onclick="convert(0)"><b>Ecnrypt</b></button>
+        </div>
+
+        <div class="containerdiv show hide" id="decryptDiv">
+            <input class="input" id="decInput" type="text" placeholder="Enter Cipher Here ..." autocomplete="off">
+            <button class="btn_convert" onclick="convert(1)"><b>Decrypt</b></button>
+        </div>
+
+    </div>
+        
     <script src="script.js"></script>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>
