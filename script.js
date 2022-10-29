@@ -1,229 +1,301 @@
+// DIVS
+let encryptDiv = document.getElementById("encryptDiv");
+let decryptDiv = document.getElementById("decryptDiv");
+
+// BUTTONS
+let btnEncrypt = document.getElementById("btnEncrypt");
+let btnDecrypt = document.getElementById("btnDecrypt");
+
+// HIDDEN INPUT
+let hiddenInput = document.getElementById('hiddenInput');
+
+let showEncryptDiv = ()=>{
+    encryptDiv.classList.remove('hide');
+    decryptDiv.classList.add('hide');
+    btnEncrypt.classList.add('focus');
+    btnDecrypt.classList.remove('focus');
+    }
+
+let showDecryptDiv = ()=>{
+    encryptDiv.classList.add('hide');
+    decryptDiv.classList.remove('hide');
+    btnEncrypt.classList.remove('focus');
+    btnDecrypt.classList.add('focus');
+}
+
+
+ 
 let breakIntoPieces = (string)=> {
     let array = [];
     for (let i=0; i<=string.length-1; i++){
-      array.push(string[i]+string[i+1]);
-      i++;
+      array.push(string[i]+string[i+1]+string[i+2]+string[i+3]+string[i+4]+string[i+5]+string[i+6]+string[i+7]);
+      i += 7;
     }
     return array;
   }
-  
-  C = '';
-  let c = confirm("y for cipher n for decipher");
-  
-  let cipher = {
-    'A': '1s',
-    'a': '2s',
-    'B': '3s',
-    'b': '4s',
-    'C': '5s',
-    'c': '6s',
-    'D': '7s',
-    'd': '8s',
-    'E': '9s',
-    'e': '10',
-    'F': '11',
-    'f': '12',
-    'G': '13',
-    'g': '14',
-    'H': '15',
-    'h': '16',
-    'I': '17',
-    'i': '18',
-    'J': '19',
-    'j': '20',
-    'K': '21',
-    'k': '22',
-    'L': '23',
-    'l': '24',
-    'M': '25',
-    'm': '26',
-    'N': '27',
-    'n': '28',
-    'O': '29',
-    'o': '30',
-    'P': '31',
-    'p': '32',
-    'Q': '33',
-    'q': '34',
-    'R': '35',
-    'r': '36',
-    'S': '37',
-    's': '38',
-    'T': '39',
-    't': '40',
-    'U': '41',
-    'u': '42',
-    'U': '43',
-    'u': '44',
-    'V': '45',
-    'v': '46',
-    'W': '47',
-    'W': '48',
-    'X': '49',
-    'x': '50',
-    'Y': '51',
-    'y': '52',
-    'Z': '53',
-    'z': '54',
-    ' ': '55',
-    '0': '56',
-    '1': '97',
-    '2': '57',
-    '3': '58',
-    '4': '59',
-    '5': '60',
-    '6': '61',
-    '7': '62',
-    '8': '63',
-    '9': '64',
-    '.': '65',
-    ',': '66',
-    ':': '67',
-    ';': '68',
-    '"': '69',
-    "'": '70',
-    '?': '71',
-    '/': '72',
-    '>': '73',
-    '<': '74',
-    '\\': '75',
-    '|': '76',
-    '{': '77',
-    '}': '78',
-    '[': '79',
-    ']': '80',
-    '`': '81',
-    '~': '82',
-    '!': '83',
-    '@': '84',
-    '#': '85',
-    '$': '86',
-    '%': '87',
-    '^': '88',
-    '&': '89',
-    '*': '90',
-    '(': '91',
-    ')': '92',
-    '-': '93',
-    '_': '94',
-    '=': '95',
-    '+': '96',
+
+  let copyText = () => {
+    hiddenInput.select();
+    document.execCommand("copy");
   }
   
-  let decipher = {
   
-    '56': '0',
-    '97': '1',
-    '57': '2',
-    '58': '3',
-    '59': '4',
-    '60': '5',
-    '61': '6',
-    '62': '7',
-    '63': '8',
-    '64': '9',
-    '1s': 'A',
-    '2s': 'a',
-    '3s': 'B',
-    '4s': 'b',
-    '5s': 'C',
-    '6s': 'c',
-    '7s': 'D',
-    '8s': 'd',
-    '9s': 'E',
-    '10': 'e',
-    '11': 'F',
-    '12': 'f',
-    '13': 'G',
-    '14': 'g',
-    '15': 'H',
-    '16': 'h',
-    '17': 'I',
-    '18': 'i',
-    '19': 'J',
-    '20': 'j',
-    '21': 'K',
-    '22': 'k',
-    '23': 'L',
-    '24': 'l',
-    '25': 'M',
-    '26': 'm',
-    '27': 'N',
-    '28': 'n',
-    '29': 'O',
-    '30': 'o',
-    '31': 'P',
-    '32': 'p',
-    '33': 'Q',
-    '34': 'q',
-    '35': 'R',
-    '36': 'r',
-    '37': 'S',
-    '38': 's',
-    '39': 'T',
-    '40': 't',
-    '43': 'U',
-    '44': 'u',
-    '45': 'V',
-    '46': 'v',
-    '48': 'W',
-    '49': 'X',
-    '50': 'x',
-    '51': 'Y',
-    '52': 'y',
-    '53': 'Z',
-    '54': 'z',
-    '55': ' ',
-    '65': '.',
-    '66': ',',
-    '67': ':',
-    '68': ';',
-    '69': '"',
-    '70': "'",
-    '71': '?',
-    '72': '/',
-    '73': '>',
-    '74': '<',
-    '75': '\\',
-    '76': '|',
-    '77': '{',
-    '78': '}',
-    '79': '[',
-    '80': ']',
-    '81': '`',
-    '82': '~',
-    '83': '!',
-    '84': '@',
-    '85': '#',
-    '86': '$',
-    '87': '%',
-    '88': '^',
-    '89': '&',
-    '90': '*',
-    '91': '(',
-    '92': ')',
-    '93': '-',
-    '94': '_',
-    '95': '=',
-    '96': '+',
-  }
-  
-  if (c) {
-    let P = prompt("enter text: ");
-    for (char of P) {
-      C += cipher[char];
+  const ciphers = {
+
+    '0': 'mYInXS!w',
+    '1': 'XswCERsD',
+    '2': 'hvttsgNx',
+    '3': 'mRNix&fI',
+    '4': 'KMcnCpVb',
+    '5': 'RaCCdmip',
+    '6': 'xaOnNL%K',
+    '7': 's$oze%VN',
+    '8': 'KVcCkQxz',
+    '9': '&WYFEvJZ',
+    'A': 'sciXPf!@',
+    'a': '#XVsZdvW',
+    'B': 'giBLG@$j',
+    'b': 'NpxFrpQl',
+    'C': 'W!aU@mdf',
+    'c': 'nlZjunRr',
+    'D': 'UAPhFlcJ',
+    'd': 'GWsyKBMr',
+    'E': 'puXuxVIX',
+    'e': 'AZWVw$FD',
+    'F': 'lkXLsr%U',
+    'f': 'OYlLsjHO',
+    'G': 'jTLiJ&!v',
+    'g': 'qnBsfE#C',
+    'H': 'P&fjDLgI',
+    'h': '%&ozYRur',
+    'I': 'CJc$wpRL',
+    'i': 'JxdIhSzr',
+    'J': 'CEaSBUmP',
+    'j': 'CtPrMgQb',
+    'K': 'zEDBJBDz',
+    'k': 'ZeMvIpGg',
+    'L': 'WPKqT&kT',
+    'l': 'v#DDJyVh',
+    'M': 'fcgbYpsD',
+    'm': '$T#OuQ&r',
+    'N': 'Wgpo@yy@',
+    'n': 'C@uVRGuW',
+    'O': 'NbzqgSDm',
+    'o': 'XNnu&OUm',
+    'P': 'aHZRLUfB',
+    'p': 'kk&ViKln',
+    'Q': 'UhfVMRuO',
+    'q': 'S$gTAGs$',
+    'R': 'whqArOKy',
+    'r': 'hvETrCyn',
+    'S': 'W&VeQDEe',
+    's': 'ayhLSZuH',
+    'T': 'YoE%OqyB',
+    't': 'ANMgiQkF',
+    'U': 'bD@U&AHA',
+    'u': 'xgFgwruf',
+    'V': 'AYYdjKN$',
+    'v': 'lgwWHNoE',
+    'W': 'ODX%ljcw',
+    'X': 'EZa@Ks#v',
+    'x': 'Nch!hHps',
+    'Y': 'xobm@Loi',
+    'y': 'Dkvs&ohq',
+    'Z': 'yHtYgaCO',
+    'z': 'PzqIf#Uc',
+    ' ': 'rGEOEQDA',
+    '.': 'H#aBMUhr',
+    ',': 'dHuWJ$YA',
+    ':': 'pnogDgLy',
+    ';': 'whSmQXwz',
+    '"': 'Q%nPKLv$',
+    "'": 'o@gO#!h#',
+    '?': 'YL%CedQk',
+    '/': 'Yn#EqqsO',
+    '>': 'leOo!Jub',
+    '<': '&IC@sm@D',
+    '\\': '%JATkGIk',
+    '|': 'UYzPohkr',
+    '{': 'UiCsdiJd',
+    '}': 'GqlT%mlY',
+    '[': 'Aq#gCi$h',
+    ']': 'rADVCtbl',
+    '`': 'LtbClaLN',
+    '~': 'kPwpo!CO',
+    '!': 'nFLe@Ogw',
+    '@': 'btSbRsAj',
+    '#': '%Sh$nzUP',
+    '$': 'oOCBY@SZ',
+    '%': 'zQH@%Fcj',
+    '^': 'HXyFozs#',
+    '&': 'c%NFQHf&',
+    '*': 'PwWBFVKH',
+    '(': 'MrMZftfB',
+    ')': 'b!BGLfPT',
+    '-': '&&mCKk#t',
+    '_': 'mNbgmnaW',
+    '=': 'SuXdToQZ',
+    '+': 'TG#aiJgC',
     }
-    console.log(C);
-  } else{
+  
+    const decipher = {
+
+      'mYInXS!w': '0',
+      'XswCERsD': '1',
+      'hvttsgNx': '2',
+      'mRNix&fI': '3',
+      'KMcnCpVb': '4',
+      'RaCCdmip': '5',
+      'xaOnNL%K': '6',
+      's$oze%VN': '7',
+      'KVcCkQxz': '8',
+      '&WYFEvJZ': '9',
+      'sciXPf!@': 'A',
+      '#XVsZdvW': 'a',
+      'giBLG@$j': 'B',
+      'NpxFrpQl': 'b',
+      'W!aU@mdf': 'C',
+      'nlZjunRr': 'c',
+      'UAPhFlcJ': 'D',
+      'GWsyKBMr': 'd',
+      'puXuxVIX': 'E',
+      'AZWVw$FD': 'e',
+      'lkXLsr%U': 'F',
+      'OYlLsjHO': 'f',
+      'jTLiJ&!v': 'G',
+      'qnBsfE#C': 'g',
+      'P&fjDLgI': 'H',
+      '%&ozYRur': 'h',
+      'CJc$wpRL': 'I',
+      'JxdIhSzr': 'i',
+      'CEaSBUmP': 'J',
+      'CtPrMgQb': 'j',
+      'zEDBJBDz': 'K',
+      'ZeMvIpGg': 'k',
+      'WPKqT&kT': 'L',
+      'v#DDJyVh': 'l',
+      'fcgbYpsD': 'M',
+      '$T#OuQ&r': 'm',
+      'Wgpo@yy@': 'N',
+      'C@uVRGuW': 'n',
+      'NbzqgSDm': 'O',
+      'XNnu&OUm': 'o',
+      'aHZRLUfB': 'P',
+      'kk&ViKln': 'p',
+      'UhfVMRuO': 'Q',
+      'S$gTAGs$': 'q',
+      'whqArOKy': 'R',
+      'hvETrCyn': 'r',
+      'W&VeQDEe': 'S',
+      'ayhLSZuH': 's',
+      'YoE%OqyB': 'T',
+      'ANMgiQkF': 't',
+      'bD@U&AHA': 'U',
+      'xgFgwruf': 'u',
+      'AYYdjKN$': 'V',
+      'lgwWHNoE': 'v',
+      'ODX%ljcw': 'W',
+      'EZa@Ks#v': 'X',
+      'Nch!hHps': 'x',
+      'xobm@Loi': 'Y',
+      'Dkvs&ohq': 'y',
+      'yHtYgaCO': 'Z',
+      'PzqIf#Uc': 'z',
+      'rGEOEQDA': ' ',
+      'H#aBMUhr': '.',
+      'dHuWJ$YA': ',',
+      'pnogDgLy': ':',
+      'whSmQXwz': ';',
+      'Q%nPKLv$': '"',
+      'o@gO#!h#': "'",
+      'YL%CedQk': '?',
+      'Yn#EqqsO': '/',
+      'leOo!Jub': '>',
+      '&IC@sm@D': '<',
+      '%JATkGIk': '\\',
+      'UYzPohkr': '|',
+      'UiCsdiJd': '{',
+      'GqlT%mlY': '}',
+      'Aq#gCi$h': '[',
+      'rADVCtbl': ']',
+      'LtbClaLN': '`',
+      'kPwpo!CO': '~',
+      'nFLe@Ogw': '!',
+      'btSbRsAj': '@',
+      '%Sh$nzUP': '#',
+      'oOCBY@SZ': '$',
+      'zQH@%Fcj': '%',
+      'HXyFozs#': '^',
+      'c%NFQHf&': '&',
+      'PwWBFVKH': '*',
+      'MrMZftfB': '(',
+      'b!BGLfPT': ')',
+      '&&mCKk#t': '-',
+      'mNbgmnaW': '_',
+      'SuXdToQZ': '=',
+      'TG#aiJgC': '+',
+      }
+
+    let cipherText = '';
     let plaintext = '';
-    let CC = prompt("enter cipher: ");
-    let pieces = breakIntoPieces(CC);
+    
+  let convert = (flag)=>{
+
+    if (flag == 0){
+
+      let encInput = document.getElementById('encInput');
+      let pText = encInput.value;
+    for (char of pText) {
+      cipherText += ciphers[char];
+    }
+    hiddenInput.value = cipherText;
+
+      swal({
+        title: "Your Cipher is: ",
+        text: `${cipherText}`,
+        buttons: ["ok", "copy"]
+      })
+        .then((copy) => {
+          if (copy) {
+            copyText();
+            swal("Your Password has been copied", {
+              icon: "success",
+            });
+          }
+        });
+            
+    } else{
+
+      let decInput = document.getElementById('decInput');
+      let cText = decInput.value;
+
+      let pieces = breakIntoPieces(cText);
     for (ciphr of pieces){
       plaintext += decipher[ciphr];
     }
-    console.log(plaintext);
-  }
+    hiddenInput.value = plaintext;
 
+      swal({
+        title: "Your Text is: ",
+        text: `${plaintext}`,
+        buttons: ["ok", "copy"]
+      })
+        .then((copy) => {
+          if (copy) {
+            copyText();
+            swal("Your Password has been copied", {
+              icon: "success",
+            });
+          }
+        });
+            
+    }
+
+}
+
+
+
+/*
   var p;
 var canvas = document.createElement("canvas");
 var img1=document.createElement("img");
@@ -249,7 +321,7 @@ let convert = ()=>{
     h.innerText = url;
 
 }
-  
+*/
   
   
   
@@ -258,3 +330,9 @@ let convert = ()=>{
   //   console.log(`'${cipher[key]}': '${key}',`);
   // }
   // console.log('}')
+
+
+
+
+
+
