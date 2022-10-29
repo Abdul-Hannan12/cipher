@@ -56,13 +56,13 @@
                 <button class="select_btn " id="btnDecryptImage" onclick="showDecryptImageDiv()">DECRYPT</button>
             </div>
 
-            <div class="containerdiv show" id="encryptDiv">
+            <div class="containerdiv show" id="encryptImageDiv">
                 <input class="input" id="encInputImage" type="text" placeholder="Insert Image Here ..." autocomplete="off">
                 <button class="btn_convert" onclick="convertImage(0)"><b>Ecnrypt</b></button>
             </div>
 
-            <div class="containerdiv show hide" id="decryptDiv">
-                <input class="input" id="decInputImage" type="text" placeholder="Enter Cipher Here ..." autocomplete="off">
+            <div class="containerdiv show hide" id="decryptImageDiv">
+                <input class="input" id="decInputImage" type="text" placeholder="Enter Cipher Image Here ..." autocomplete="off">
                 <button class="btn_convert" onclick="convertImage(1)"><b>Decrypt</b></button>
             </div>
 
@@ -71,7 +71,6 @@
     </div>
         
     <script src="assets/scripts/text.js"></script>
-    <script src="assets/scripts/side.js"></script>
     <script src="assets/scripts/image.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

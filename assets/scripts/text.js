@@ -299,44 +299,4 @@ let breakIntoPieces = (string)=> {
 
 
 
-/*
-  var p;
-var canvas = document.createElement("canvas");
-var img1=document.createElement("img");
-
-  function getBase64Image(){     
-    p=document.getElementById("fileUpload").value;
-    alert(p)
-    img1.setAttribute('src', p);
-    canvas.width = img1.width;
-    canvas.height = img1.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img1, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    var item_image = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-    alert(item_image);
-    alert("from getbase64 function"+dataURL );
-    return dataURL;
-}
-
-let convert = ()=>{
-    let url = getBase64Image();
-    let h = document.getElementById('ttt');
-    h.innerText = url;
-
-}
-*/
-  
-  
-  
-  // console.log('let decipher = {\n')
-  // for (key in cipher) {
-  //   console.log(`'${cipher[key]}': '${key}',`);
-  // }
-  // console.log('}')
-
-
-
-
-
 
