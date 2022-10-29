@@ -6,14 +6,18 @@ let decryptDiv = document.getElementById("decryptDiv");
 let btnEncrypt = document.getElementById("btnEncrypt");
 let btnDecrypt = document.getElementById("btnDecrypt");
 
-// HIDDEN INPUT
+// INPUTS
 let hiddenInput = document.getElementById('hiddenInput');
+let encInput = document.getElementById('encInput');
+let decInput = document.getElementById('decInput');
+
 
 let showEncryptDiv = ()=>{
     encryptDiv.classList.remove('hide');
     decryptDiv.classList.add('hide');
     btnEncrypt.classList.add('focus');
     btnDecrypt.classList.remove('focus');
+    decInput.value = "";
     }
 
 let showDecryptDiv = ()=>{
@@ -21,6 +25,7 @@ let showDecryptDiv = ()=>{
     decryptDiv.classList.remove('hide');
     btnEncrypt.classList.remove('focus');
     btnDecrypt.classList.add('focus');
+    encInput.value = "";
 }
 
 
@@ -236,14 +241,13 @@ let breakIntoPieces = (string)=> {
       'TG#aiJgC': '+',
       }
 
-    let cipherText = '';
-    let plaintext = '';
     
   let convert = (flag)=>{
 
+    let cipherText = '';
+
     if (flag == 0){
 
-      let encInput = document.getElementById('encInput');
       let pText = encInput.value;
     for (char of pText) {
       cipherText += ciphers[char];
@@ -266,7 +270,7 @@ let breakIntoPieces = (string)=> {
             
     } else{
 
-      let decInput = document.getElementById('decInput');
+      let plaintext = '';
       let cText = decInput.value;
 
       let pieces = breakIntoPieces(cText);
