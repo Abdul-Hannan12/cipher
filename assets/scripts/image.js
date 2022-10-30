@@ -26,6 +26,15 @@ btnTxt.addEventListener('click', ()=>{
     txtDiv.classList.remove('hide');
     imgDiv.classList.add('hide');
     imgDiv.classList.remove('show');
+    imgUrlInput.value = "";
+    imgInput.value = "";
+    imgLabel.innerText = "Upload Image";
+    btnEncImg.classList.add('focus');
+    btnDecImg.classList.remove('focus');
+    encImgDiv.classList.add('show');
+    encImgDiv.classList.remove('hide');
+    decImgDiv.classList.add('hide');
+    decImgDiv.classList.remove('show');
 });
  
 btnImg.addEventListener('click', ()=>{
@@ -35,6 +44,12 @@ btnImg.addEventListener('click', ()=>{
     txtDiv.classList.remove('show');
     imgDiv.classList.add('show');
     imgDiv.classList.remove('hide');
+    decInput.value = "";
+    encInput.value = "";
+    encryptDiv.classList.remove('hide');
+    decryptDiv.classList.add('hide');
+    btnEncrypt.classList.add('focus');
+    btnDecrypt.classList.remove('focus');
 });
 
 btnEncImg.addEventListener('click', ()=>{
@@ -44,6 +59,7 @@ btnEncImg.addEventListener('click', ()=>{
     encImgDiv.classList.remove('hide');
     decImgDiv.classList.add('hide');
     decImgDiv.classList.remove('show');
+    imgUrlInput.value = "";
 });
 
 btnDecImg.addEventListener('click', ()=>{
@@ -53,6 +69,8 @@ btnDecImg.addEventListener('click', ()=>{
     decImgDiv.classList.remove('hide');
     encImgDiv.classList.add('hide');
     encImgDiv.classList.remove('show');
+    imgInput.value = "";
+    imgLabel.innerText = "Upload Image";
 });
 
 imgInput.addEventListener('change', (e)=>{
@@ -112,13 +130,13 @@ btndec.addEventListener('click', ()=>{
     swal({
       title: "Image Decoded!",
       text: `Download or view your image now!`,
-      buttons: ["ok", "copy"]
+      buttons: ["cancel", "GO"]
     })
-      .then((copy) => {
-        if (copy) {
+      .then((go) => {
+        if (go) {
           var win = window.open();
-          win.document.write('<iframe src="' + url + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
-          win.document.write(`<a href="${url}" download> Download </a>`)
+          win.document.write(`<img src="${url}" style="width:95vw; height:80vh; object-fit: contain; background: black; overflow: hidden;"></img>`)
+          win.document.write(`<a href="${url}" download style="border: 1px solid black; padding: 15px; text-decoration: none; color: black; background: tan; margin-top: 15px; position: absolute; bottom: 50px; left: 600px; border-radius: 8px; "> Download </a>`)
         }
       });
 
