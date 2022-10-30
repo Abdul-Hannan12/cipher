@@ -77,7 +77,7 @@ imgInput.addEventListener('change', (e)=>{
   
   // showing file name 
   let filepath = e.target.value;
-  let filename = filepath.slice(12, -1);
+  let filename = filepath.slice(12, filepath.length);
   if (filename != ""){
     imgLabel.innerText = filename;
   }
