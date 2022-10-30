@@ -13,6 +13,7 @@ decImgDiv = document.getElementById('decryptImageDiv');
 // INPUTS
 let imgLabel = document.getElementsByClassName('custom-file-upload')[0];
 let imgInput = document.getElementById('encInputImage');
+let imgUrlInput = document.getElementById('decInputImage');
 
 // CONVERT BTNS
 btnenc = document.getElementsByClassName('encimagebtn')[0];
@@ -55,18 +56,75 @@ btnDecImg.addEventListener('click', ()=>{
 });
 
 imgInput.addEventListener('change', (e)=>{
+  
+  // showing file name 
   let filepath = e.target.value;
   let filename = filepath.slice(12, -1);
   if (filename != ""){
     imgLabel.innerText = filename;
   }
+
+  // encoding image
+  const file = e.target.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.addEventListener('load', ()=>{
+    hiddenInput.value = reader.result;
+  });
+
 });
 
 btnenc.addEventListener('click', ()=>{
 
+  cipherImage = '';
+  let base = hiddenInput.value;
+  for (char of base) {
+    cipherImage += ciphers[char];
+  }
+  hiddenInput.value = cipherImage;
+
+  swal({
+    title: "Your Cipher is: ",
+    text: `${hiddenInput.value}`,
+    buttons: ["ok", "copy"]
+  })
+    .then((copy) => {
+      if (copy) {
+        copyText();
+        swal("Your Password has been copied", {
+          icon: "success",
+        });
+      }
+    });
+
 });
 
 btndec.addEventListener('click', ()=>{
+
+    let url = '';
+    let imgUrl = imgUrlInput.value;
+    let pieces = breakIntoPieces(imgUrl);
+    for (ciphr of pieces){
+      url += decipher[ciphr];
+    }
+    hiddenInput.value = url;
+
+    swal({
+      title: "Image Decoded!",
+      text: `Download or view your image now!`,
+      buttons: ["ok", "copy"]
+    })
+      .then((copy) => {
+        if (copy) {
+          // copyText();
+          // swal("Your Password has been copied", {
+          //   icon: "success",
+          // });
+          var win = window.open();
+          win.document.write('<iframe src="' + url + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
+          win.document.write(`<a href="${url}" download> Download </a>`)
+        }
+      });
 
 });
 
