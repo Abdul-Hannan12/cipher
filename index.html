@@ -52,18 +52,20 @@
         <div class="main mainImage show hide">
 
             <div class="buttons">
-                <button class="select_btn focus" id="btnEncryptImage" onclick="showEncryptImageDiv()">ENCRYPT</button>
-                <button class="select_btn " id="btnDecryptImage" onclick="showDecryptImageDiv()">DECRYPT</button>
+                <button class="select_btn focus" id="btnEncryptImage">ENCRYPT</button>
+                <button class="select_btn " id="btnDecryptImage">DECRYPT</button>
             </div>
 
             <div class="containerdiv show" id="encryptImageDiv">
-                <input class="input" id="encInputImage" type="text" placeholder="Insert Image Here ..." autocomplete="off">
-                <button class="btn_convert" onclick="convertImage(0)"><b>Ecnrypt</b></button>
+                <!-- <input class="input" id="encInputImage" type="file" placeholder="Insert Image Here ..." autocomplete="off"> -->
+                <label for="encInputImage" class="input custom-file-upload"> Upload Image </label>
+                <input id="encInputImage" type="file"/>
+                <button class="btn_convert encimagebtn"><b>Ecnrypt</b></button>
             </div>
 
             <div class="containerdiv show hide" id="decryptImageDiv">
                 <input class="input" id="decInputImage" type="text" placeholder="Enter Cipher Image Here ..." autocomplete="off">
-                <button class="btn_convert" onclick="convertImage(1)"><b>Decrypt</b></button>
+                <button class="btn_convert decimagebtn"><b>Decrypt</b></button>
             </div>
 
         </div>

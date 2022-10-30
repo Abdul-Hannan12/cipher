@@ -10,6 +10,14 @@ imgDiv = document.getElementsByClassName('mainImage')[0];
 encImgDiv = document.getElementById('encryptImageDiv');
 decImgDiv = document.getElementById('decryptImageDiv');
 
+// INPUTS
+let imgLabel = document.getElementsByClassName('custom-file-upload')[0];
+let imgInput = document.getElementById('encInputImage');
+
+// CONVERT BTNS
+btnenc = document.getElementsByClassName('encimagebtn')[0];
+btndec = document.getElementsByClassName('decimagebtn')[0];
+
 btnTxt.addEventListener('click', ()=>{
     btnTxt.classList.add('selected');
     btnImg.classList.remove('selected');
@@ -18,7 +26,7 @@ btnTxt.addEventListener('click', ()=>{
     imgDiv.classList.add('hide');
     imgDiv.classList.remove('show');
 });
-
+ 
 btnImg.addEventListener('click', ()=>{
     btnImg.classList.add('selected');
     btnTxt.classList.remove('selected');
@@ -29,6 +37,8 @@ btnImg.addEventListener('click', ()=>{
 });
 
 btnEncImg.addEventListener('click', ()=>{
+    btnEncImg.classList.add('focus');
+    btnDecImg.classList.remove('focus');
     encImgDiv.classList.add('show');
     encImgDiv.classList.remove('hide');
     decImgDiv.classList.add('hide');
@@ -36,10 +46,28 @@ btnEncImg.addEventListener('click', ()=>{
 });
 
 btnDecImg.addEventListener('click', ()=>{
+    btnDecImg.classList.add('focus');
+    btnEncImg.classList.remove('focus');
     decImgDiv.classList.add('show');
     decImgDiv.classList.remove('hide');
     encImgDiv.classList.add('hide');
     encImgDiv.classList.remove('show');
+});
+
+imgInput.addEventListener('change', (e)=>{
+  let filepath = e.target.value;
+  let filename = filepath.slice(12, -1);
+  if (filename != ""){
+    imgLabel.innerText = filename;
+  }
+});
+
+btnenc.addEventListener('click', ()=>{
+
+});
+
+btndec.addEventListener('click', ()=>{
+
 });
 
 
