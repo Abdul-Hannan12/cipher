@@ -116,10 +116,6 @@ btndec.addEventListener('click', ()=>{
     })
       .then((copy) => {
         if (copy) {
-          // copyText();
-          // swal("Your Password has been copied", {
-          //   icon: "success",
-          // });
           var win = window.open();
           win.document.write('<iframe src="' + url + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
           win.document.write(`<a href="${url}" download> Download </a>`)
@@ -127,78 +123,3 @@ btndec.addEventListener('click', ()=>{
       });
 
 });
-
-
-/*
-  var p;
-var canvas = document.createElement("canvas");
-var img1=document.createElement("img");
-
-  function getBase64Image(){     
-    p=document.getElementById("fileUpload").value;
-    alert(p)
-    img1.setAttribute('src', p);
-    canvas.width = img1.width;
-    canvas.height = img1.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img1, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    var item_image = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-    alert(item_image);
-    alert("from getbase64 function"+dataURL );
-    return dataURL;
-}
-
-let convert = ()=>{
-    let url = getBase64Image();
-    let h = document.getElementById('ttt');
-    h.innerText = url;
-
-}
-*/
-
-
-/*
-let img;
-  document.getElementById("fileUpload").addEventListener('change', (e)=>{
-    img = e.target.files[0];
-    // let reader = new FileReader();
-    // let url = reader.readAsDataURL(img[0])
-    // console.log(url)
-    var reader = new FileReader();
-  
-    var imgtag = document.getElementById("myimage");
-    imgtag.title = img.name;
-  
-    reader.onload = function(event) {
-      imgtag.src = event.target.result;
-    };
-  
-    let myurl = reader.readAsDataURL(img);
-    // console.log(myurl)  
-  })
-
-
-  var p;
-var canvas = document.createElement("canvas");
-var img1=document.createElement("img");
-
-  function getBase64Image(image){     
-      let base = btoa(image);
-      return base;
-}
-
-let getImagefromBase64 = (base64)=>{
-  let image = atob(base64);
-  return image;
-}
-
-let convert = ()=>{
-    let url = getBase64Image(img);
-    let h = document.getElementById('ttt');
-    h.innerText = url;
-    let ccc = prompt("enter base");
-    let imgg = getImagefromBase64(ccc);
-    console.log('image: ', imgg, ccc);
-}
-*/
