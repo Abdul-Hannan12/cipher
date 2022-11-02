@@ -109,7 +109,7 @@ btnenc.addEventListener('click', ()=>{
     .then((copy) => {
       if (copy) {
         copyText();
-        swal("Your Password has been copied", {
+        swal("Your Cipher has been copied", {
           icon: "success",
         });
       }
